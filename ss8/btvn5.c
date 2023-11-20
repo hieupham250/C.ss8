@@ -1,21 +1,35 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
-	int n,i;
-	int update_Value,update_Index;
-	printf("nhap phan tu cua mang n: ");
-	scanf("%d",&n);
-	int a[n];
-	for(i=0;i<n;i++){
-		printf("a[%d] = ",i);
-		scanf("%d",&a[i]);
-	}
-	printf("nhap so can thay: ");
-	scanf("%d",&update_Value);
-	printf("nhap vi tri can thay: ");
-	scanf("%d",&update_Index);
-	a[update_Index-1] = update_Value;
-	for(i=0;i<n;i++){
-		printf("%d\t",a[i]);
-	}
+int main() {
+    int n, i, delete_Index;
+    printf("Nhap so phan tu cua mang: ");
+    scanf("%d", &n);
+
+    int oldNumbers[n];
+    printf("Nhap vao cac gia tri:\n");
+    for (i = 0; i < n; i++) {
+        printf("numbers[%d]= ", i);
+        scanf("%d", &oldNumbers[i]);
+    }
+
+    printf("Nhap chi so phan tu can xoa: ");
+    scanf("%d", &delete_Index);
+
+    if (delete_Index >= 0 && delete_Index < n) {
+        for (i = delete_Index; i < n - 1; i++) {
+            oldNumbers[i] = oldNumbers[i + 1];
+        }
+
+        n--;  // Reduce the size of the array
+
+        printf("Mang sau khi xoa:\n");
+        for (i = 0; i < n; i++) {
+            printf("%d\t", oldNumbers[i]);
+        }
+    } else {
+        printf("Chi so phan tu can xoa khong hop le.\n");
+    }
+
+    return 0;
 }
+
