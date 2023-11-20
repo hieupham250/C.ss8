@@ -13,7 +13,6 @@ int main(){
 	scanf("%d",&addValue);
 	printf("Nhap vao chi so can chen vao mang:");
 	scanf("%d",&addIndex);
-	printf("Nhap gia tri cac phan tu cua mang:\n");
 	if(addIndex<n){
 		int newNumbers[n+1];
 		for(i=0; i<n+1; i++){
